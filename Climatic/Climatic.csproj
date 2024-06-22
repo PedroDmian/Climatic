@@ -11,6 +11,7 @@
     </PropertyGroup>
     <ItemGroup>
       <PackageReference Include="Karamunting.Android.Intuit.Sdp" Version="1.0.6" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0-preview.5.24306.7" />
       <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.10" />
       <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.13" />
       <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.6" />

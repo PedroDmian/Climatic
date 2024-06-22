@@ -1,6 +1,8 @@
+using System.Reflection;
 using Android.Content;
 using AndroidX.AppCompat.Widget;
 using Climatic.Src.Ui;
+using Microsoft.Extensions.Configuration;
 
 namespace Climatic;
 
@@ -10,6 +12,12 @@ public class MainActivity : Activity
     protected override void OnCreate(Bundle? savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
+        
+        var a = Assembly.GetExecutingAssembly();
+        using var stream = a.GetManifestResourceStream($"{a.GetName().Name}.appsettings.json");
+        var configuration = new ConfigurationBuilder()
+            .AddJsonStream(stream)
+            .Build();
 
         SetContentView(Resource.Layout.auth_login_fragment);
         
@@ -20,10 +28,12 @@ public class MainActivity : Activity
         btnRegistration.Click += actionRegistration;
     }
 
-    private void actionLogin(object sender, System.EventArgs e)
+    private async void actionLogin(object sender, System.EventArgs e)
     {
         var intent = new Intent(this, typeof(HomeActivity));
         StartActivity(intent);
+        
+        var users = await User.GetAllUsers();
     }
     
     private void actionRegistration(object sender, System.EventArgs e)

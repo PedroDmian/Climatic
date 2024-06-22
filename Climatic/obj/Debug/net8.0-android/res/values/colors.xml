@@ -1,1 +1,24 @@
-<resources><color name="colorPrimary">#907D5F</color><color name="colorPrimaryOpacity">#45FE8D00</color><color name="colorPrimaryDark">#907D5F</color><color name="colorAccent">#9FA2AA</color><color name="colorTextWhite">#FFFFFF</color><color name="colorBackgroundPizazz">#907D5F</color><color name="colorTextBlack">#000000</color><color name="colorBackgroundMenuBottom">#000000</color><color name="colorBackgroundOpacity">#00000000</color><color name="colorEbony">#090E2A</color><color name="colorAluminium">#9FA2AA</color><color name="strings.xml">#F5F5F6</color><color name="colorCardinalDim">#26CB202D</color><color name="colorCardinal">#CB202D</color><color name="horizontal_drop_shadow_inversed_start_color">#90000000</color><color name="horizontal_drop_shadow_inversed_center_color">#30000000</color></resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#907D5F</color>
+    <color name="colorPrimaryOpacity">#45FE8D00</color>
+    <color name="colorPrimaryDark">#907D5F</color>
+    <color name="colorAccent">#9FA2AA</color>
+
+    <color name="colorTextWhite">#FFFFFF</color>
+    <color name="colorBackgroundPizazz">#907D5F</color>
+    <color name="colorTextBlack">#000000</color>
+    <color name="colorBackgroundMenuBottom">#000000</color>
+    <color name="colorBackgroundOpacity">#00000000</color>
+
+
+    <color name="colorEbony">#090E2A</color>
+    <color name="colorAluminium">#9FA2AA</color>
+    <color name="strings.xml">#F5F5F6</color>
+    <color name="colorCardinalDim">#26CB202D</color>
+    <color name="colorCardinal">#CB202D</color>
+
+    <color name="horizontal_drop_shadow_inversed_start_color">#90000000</color>
+    <color name="horizontal_drop_shadow_inversed_center_color">#30000000</color>
+
+</resources>
