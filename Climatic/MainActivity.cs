@@ -13,12 +13,6 @@ public class MainActivity : Activity
     {
         base.OnCreate(savedInstanceState);
         
-        var a = Assembly.GetExecutingAssembly();
-        using var stream = a.GetManifestResourceStream($"{a.GetName().Name}.appsettings.json");
-        var configuration = new ConfigurationBuilder()
-            .AddJsonStream(stream)
-            .Build();
-
         SetContentView(Resource.Layout.auth_login_fragment);
         
         Button btnLogin = FindViewById<Button>(Resource.Id.buttonLogin);
@@ -32,8 +26,6 @@ public class MainActivity : Activity
     {
         var intent = new Intent(this, typeof(HomeActivity));
         StartActivity(intent);
-        
-        var users = await User.GetAllUsers();
     }
     
     private void actionRegistration(object sender, System.EventArgs e)
