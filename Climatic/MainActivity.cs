@@ -41,12 +41,12 @@ public class MainActivity : Activity
 
             var response =
                 await requestClient.MakePostRequestAsync(
-                    " https://a847-187-162-39-180.ngrok-free.app/api/auth/login",
+                    "/auth/login",
                     requestData);
 
             var convertResponse = JsonConvert.DeserializeObject<RequestResponse>(response);
 
-            if (convertResponse.Estatus == 2)
+             if (convertResponse.Estatus == 2)
             {
                 throw new Exception(convertResponse.Mensaje);
             }

@@ -10,5 +10,5 @@ public class RequestResponse
     public string Token { get; set; }
     
     [JsonConverter(typeof(DataConverter))]
-    public object Data { get; set; }
+    public object Datos { get; set; }
 }

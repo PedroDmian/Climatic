@@ -8,6 +8,8 @@ using System.Text;
 
 public class HttpRequest
 {
+    private string HOST = "https://bd44-189-175-21-208.ngrok-free.app/api";
+    
     public async Task<string> MakePostRequestAsync(string url, object data)
     {
         using (HttpClient client = new HttpClient())
@@ -17,7 +19,7 @@ public class HttpRequest
                 var json = JsonConvert.SerializeObject(data);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await client.PostAsync(url, content);
+                HttpResponseMessage response = await client.PostAsync(HOST + url, content);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 return responseBody;
@@ -35,7 +37,7 @@ public class HttpRequest
         {
             try
             {
-                HttpResponseMessage response = await client.GetAsync(url);
+                HttpResponseMessage response = await client.GetAsync(HOST + url);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 return responseBody;
