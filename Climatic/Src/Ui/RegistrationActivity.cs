@@ -51,29 +51,32 @@ public class RegistrationActivity : Activity
                 email = FindViewById<EditText>(Resource.Id.textInputLayoutEmail).Text,
                 name = FindViewById<EditText>(Resource.Id.textInputLayoutName).Text,
                 password = FindViewById<EditText>(Resource.Id.textInputLayoutPassword).Text,
-                birthdate = dateBirthDay,
+                birthdate = "1999-03-05",
+                activity = "Oficina"
             };
 
             HttpRequest requestClient = new HttpRequest();
 
             var response =
                 await requestClient.MakePostRequestAsync(
-                    "/register",
+                    "/auth/register",
                     requestData);
 
-            var convertResponse = JsonConvert.DeserializeObject<RequestResponse>(response);
+            var convertResponse = JsonConvert.DeserializeObject<RequestResponseNEW>(response);
 
             if (convertResponse.Estatus == 2)
             {
                 throw new Exception(convertResponse.Mensaje);
             }
             
-            var intent = new Intent(this, typeof(HomeActivity));
+            Toast.MakeText(Application.Context, "El usuario se registro correctamente", ToastLength.Short).Show();
+            
+            var intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
         }
         catch (Exception error)
         {
-            Toast.MakeText(Application.Context, "Error al registrar el usuario", ToastLength.Short).Show();
+            Toast.MakeText(Application.Context, "El usuario ya existe", ToastLength.Short).Show();
         }
     }
 }

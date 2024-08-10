@@ -1,13 +1,10 @@
 namespace Climatic.Src.Ui;
 
-using System.Reflection;
-using Android.Content;
-using AndroidX.AppCompat.Widget;
 using Climatic.Core.Models;
 using Climatic.Core.Services;
-using Microsoft.Extensions.Configuration;
-using static Climatic.Core.Services.HttpRequest;
 using Newtonsoft.Json;
+using System;
+using Xamarin.Essentials;
 
 [ Activity(Label = "Home") ]
 public class HomeActivity : Activity
@@ -18,7 +15,7 @@ public class HomeActivity : Activity
     {
         base.OnCreate(savedInstanceState);
 
-        SetContentView(Resource.Layout.home_fragment);
+        SetContentView(Climatic.Resource.Layout.home_fragment);
 
         if (!setLoadClimatic)
         {
@@ -42,15 +39,17 @@ public class HomeActivity : Activity
             }
 
             this.setLoadClimatic = true;
-            
-            FindViewById<EditText>(Resource.Id.temperatureTextView).setText(convertResponse.Datos.temperature);
-            FindViewById<EditText>(Resource.Id.box1Number).setText(convertResponse.Datos.min);
-            FindViewById<EditText>(Resource.Id.box2Subtitle).setText(convertResponse.Datos.temperature);
-            FindViewById<EditText>(Resource.Id.box3).setText(convertResponse.Datos.temperature);
+
+            FindViewById<TextView>(Climatic.Resource.Id.temperatureTextView).Text = $"{convertResponse.Datos.temperature} \u00b0C";
+            FindViewById<TextView>(Climatic.Resource.Id.box1Number).Text = $"{convertResponse.Datos.wind} km/h";
+            FindViewById<TextView>(Climatic.Resource.Id.box2Number).Text = $"{convertResponse.Datos.humidity} %";
+            FindViewById<TextView>(Climatic.Resource.Id.box3Number).Text = $"{convertResponse.Datos.precipitation_pro} km/h";
         }
         catch (Exception error)
         {
             Toast.MakeText(Application.Context, "Error al obtener temperatura", ToastLength.Short).Show();
         }
     }
+    
 }
+

@@ -8,7 +8,7 @@ using System.Text;
 
 public class HttpRequest
 {
-    private string HOST = "https://bd44-189-175-21-208.ngrok-free.app/api";
+    private string HOST = "https://climatic-czbrheakaxe5gscq.eastus-01.azurewebsites.net/api";
     
     public async Task<string> MakePostRequestAsync(string url, object data)
     {
